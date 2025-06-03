@@ -45,31 +45,16 @@ const UserPhotoPost = () => {
     <section className={`${styles.photoPost} animeLeft`}>
       <Head title="Poste sua foto" />
       <form onSubmit={handleSubmit}>
-        <Input label="Nome" type="text" name="nome" {...nome} />
-        <Input label="Peso" type="number" name="peso" {...peso} />
-        <Input label="Idade" type="number" name="idade" {...idade} />
-        <input
-          className={styles.file}
-          type="file"
-          name="img"
-          id="img"
-          onChange={handleImgChange}
-        />
+        <Input label="Moeda" type="text" name="nome" {...nome} />
+        <Input label="Valor" type="number" name="peso" {...peso} />
+        <Input label="Instituição" type="text" name="bank" {...idade} />
         {loading ? (
           <Button disabled>Enviando...</Button>
         ) : (
-          <Button>Enviar</Button>
+          <Button>Adicionar</Button>
         )}
         <Error error={error} />
       </form>
-      <div>
-        {img.preview && (
-          <div
-            className={styles.preview}
-            style={{ backgroundImage: `url('${img.preview}')` }}
-          ></div>
-        )}
-      </div>
     </section>
   );
 };
