@@ -5,10 +5,8 @@
   gap: 2rem;
 }
 
-.login::before {
+.image{
   display: block;
-  content: '';
-  background: url('../../Assets/FinanceTrack.png') no-repeat center center;
   background-size: cover;
 }
 

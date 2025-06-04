@@ -9,6 +9,10 @@
   line-height: 1;
 }
 
+.perdeu:hover{
+  color: #00BFFF;
+}
+
 .perdeu::after {
   content: '';
   height: 2px;
@@ -36,7 +40,7 @@
 .subtitle::after {
   content: '';
   display: block;
-  background: #ddd;
+  background: #00BFFF;
   height: 0.5rem;
   width: 3rem;
   border-radius: 0.2rem;

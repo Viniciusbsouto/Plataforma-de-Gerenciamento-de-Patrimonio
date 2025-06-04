@@ -1,4 +1,4 @@
-export const API_URL = 'https://dogsapi.origamid.dev/json';
+export const API_URL = 'http://financetrackapi.test/json';
 
 export function TOKEN_POST(body) {
   return {
@@ -50,9 +50,9 @@ export function USER_POST(body) {
   };
 }
 
-export function PHOTO_POST(formData, token) {
+export function BALANCE_POST(formData, token) {
   return {
-    url: API_URL + '/api/photo',
+    url: API_URL + '/api/balance',
     options: {
       method: 'POST',
       headers: {
@@ -99,7 +99,7 @@ export function COMMENT_POST(id, body) {
 
 export function PHOTO_DELETE(id) {
   return {
-    url: `${API_URL}/api/photo/${id}`,
+    url: `${API_URL}/api/balance/${id}`,
     options: {
       method: 'DELETE',
       headers: {
@@ -144,3 +144,4 @@ export function STATS_GET() {
     },
   };
 }
+
