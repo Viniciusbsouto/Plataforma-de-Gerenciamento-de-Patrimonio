@@ -83,21 +83,7 @@ export function PHOTO_GET(id) {
   };
 }
 
-export function COMMENT_POST(id, body) {
-  return {
-    url: `${API_URL}/api/comment/${id}`,
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
-      },
-      body: JSON.stringify(body),
-    },
-  };
-}
-
-export function PHOTO_DELETE(id) {
+export function BALANCE_DELETE(id) {
   return {
     url: `${API_URL}/api/balance/${id}`,
     options: {
@@ -145,3 +131,14 @@ export function STATS_GET() {
   };
 }
 
+export function BALANCE_USER_GET(user_id) {
+  return {
+    url: `${API_URL}/api/balance/user/${user_id}`,
+    options: {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  };
+}
