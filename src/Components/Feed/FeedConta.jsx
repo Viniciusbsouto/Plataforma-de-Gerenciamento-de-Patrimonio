@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BALANCE_USER_GET, USER_GET } from '../../Api'; // Ajuste o caminho conforme onde salvou suas funções
+import { BALANCE_USER_GET, USER_GET } from '../../Api'; // Ajuste conforme o caminho
 
 const FeedConta = () => {
   const [total, setTotal] = useState(0);
+  const [balances, setBalances] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,7 +16,7 @@ const FeedConta = () => {
         const token = window.localStorage.getItem('token');
         if (!token) throw new Error('Usuário não autenticado');
 
-        // Primeiro, pega os dados do usuário autenticado
+        // Busca dados do usuário
         const { url: userUrl, options: userOptions } = USER_GET(token);
         const userResponse = await fetch(userUrl, userOptions);
         const userData = await userResponse.json();
@@ -25,7 +26,7 @@ const FeedConta = () => {
 
         const userId = userData.id;
 
-        // Agora, pega o saldo do usuário
+        // Busca lançamentos
         const { url: balanceUrl, options: balanceOptions } =
           BALANCE_USER_GET(userId);
         const balanceResponse = await fetch(balanceUrl, balanceOptions);
@@ -34,12 +35,12 @@ const FeedConta = () => {
         if (!balanceResponse.ok)
           throw new Error(balanceData.message || 'Erro ao obter saldo');
 
-        // Soma os valores (campo correto: "valor")
+        // Salva lista e calcula total
+        setBalances(balanceData);
         const totalValue = balanceData.reduce(
           (acc, item) => acc + parseFloat(item.valor),
           0,
         );
-
         setTotal(totalValue);
       } catch (err) {
         setError(err.message);
@@ -58,6 +59,40 @@ const FeedConta = () => {
     <div>
       <h2>Saldo Total</h2>
       <p>R$ {total.toFixed(2)}</p>
+
+      <h3>Lançamentos</h3>
+      {balances.length === 0 ? (
+        <p>Nenhum lançamento encontrado.</p>
+      ) : (
+        <ul>
+          {balances.map((item) => (
+            <li
+              key={item.id}
+              style={{
+                border: '1px solid #ccc',
+                padding: '10px',
+                marginBottom: '10px',
+              }}
+            >
+              <p>
+                <strong>Descrição:</strong> {item.descricao}
+              </p>
+              <p>
+                <strong>Valor:</strong> R$ {parseFloat(item.valor).toFixed(2)}
+              </p>
+              <p>
+                <strong>Instituição:</strong> {item.instituicao}
+              </p>
+              <p>
+                <strong>Tipo:</strong> {item.tipo}
+              </p>
+              <p>
+                <strong>Data:</strong> {item.data_publicacao}
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
