@@ -17,7 +17,7 @@ const UserHeader = () => {
         setTitle('Estatísticas');
         break;
       default:
-        setTitle('Minha Conta');
+        setTitle('Minhas Posições');
     }
   }, [location]);
 

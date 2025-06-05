@@ -1,28 +1,31 @@
-.graph{
+.graph {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
-.graphItem{
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
-  border-radius: .2rem;
+.graphItem {
+  background: #1a1a1a; /* fundo escuro para destacar no preto */
+  border: 1px solid #333; /* borda sutil para separação */
+  border-radius: 0.5rem;
   display: grid;
   align-items: center;
+  padding: 1rem;
 }
 
-.total{
-  grid-column: 1/ 3;
+.total {
+  grid-column: 1 / 3;
   padding: 2rem;
   font-size: 2rem;
+  color: #fff; /* texto branco */
 }
 
-@media(max-width: 40rem){
-  .graph{
+@media (max-width: 40rem) {
+  .graph {
     grid-template-columns: 1fr;
   }
-  .total{
+  .total {
     grid-column: 1;
   }
 }

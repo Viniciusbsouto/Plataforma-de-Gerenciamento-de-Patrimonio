@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BALANCE_USER_GET, USER_GET } from '../../Api'; // Ajuste conforme o caminho
+import Head from '../Helper/Head';
 
 const FeedConta = () => {
   const [total, setTotal] = useState(0);
@@ -57,6 +58,7 @@ const FeedConta = () => {
 
   return (
     <div>
+      <Head title="Minhas Posições" />
       <h2>Saldo Total</h2>
       <p>R$ {total.toFixed(2)}</p>
 
