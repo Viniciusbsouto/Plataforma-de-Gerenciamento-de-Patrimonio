@@ -10,9 +10,8 @@ Com ele, você consegue visualizar suas posições financeiras, e o seu saldo at
 
 ## 🛠 Tecnologias utilizadas
 - [React] (frontend)
-- [Victory](gráficos)
-- [Styled Components](estilização)
-- [Axios](https://axios-http.com/) (requisições HTTP, se houver backend)
+- [Victory] (gráficos)
+- [Styled Components] (estilização)
 - [WordPress REST API] (backend de dados)
 
 ---
