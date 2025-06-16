@@ -10,6 +10,27 @@ const UserStats = () => {
   const [balanceLoading, setBalanceLoading] = React.useState(false);
   const [balanceError, setBalanceError] = React.useState(null);
 
+  // Função para agrupar os dados por instituição
+  function agruparPorInstituicao(data) {
+    const resultado = {};
+
+    data.forEach((item) => {
+      const nome = item.instituicao;
+      const valor = Number(item.valor);
+
+      if (resultado[nome]) {
+        resultado[nome] += valor;
+      } else {
+        resultado[nome] = valor;
+      }
+    });
+
+    return Object.entries(resultado).map(([instituicao, valor]) => ({
+      instituicao,
+      valor,
+    }));
+  }
+
   React.useEffect(() => {
     async function fetchBalanceData() {
       setBalanceLoading(true);
@@ -27,7 +48,8 @@ const UserStats = () => {
 
         const userId = userData.id;
 
-        const { url: balanceUrl, options: balanceOptions } = BALANCE_USER_GET(userId);
+        const { url: balanceUrl, options: balanceOptions } =
+          BALANCE_USER_GET(userId);
         const balanceResponse = await fetch(balanceUrl, balanceOptions);
         const balanceData = await balanceResponse.json();
 
@@ -36,7 +58,9 @@ const UserStats = () => {
         if (!balanceResponse.ok)
           throw new Error(balanceData.message || 'Erro ao obter saldo');
 
-        setBalanceData(balanceData);
+        // Agrupar os dados antes de salvar
+        const dadosAgrupados = agruparPorInstituicao(balanceData);
+        setBalanceData(dadosAgrupados);
       } catch (err) {
         setBalanceError(err.message);
       } finally {

@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 import LoginCreate from './LoginCreate';
 import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
-import FinanceTrackImg from '../../Assets/FinanceTrack3.png';
+import FinanceTrackImg from '../../Assets/FinanceTrack.png';
 import { UserContext } from '../../UserContext';
 import styles from './Login.module.css';
 import NotFound from '../NotFound';

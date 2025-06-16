@@ -44,9 +44,9 @@ const UserStatsGraphs = ({ balanceData = [] }) => {
         <VictoryPie
           data={graph}
           innerRadius={50}
-          labelRadius={110} // 👈 força os nomes para fora das fatias
+          labelRadius={110} 
           padding={{ top: 20, bottom: 20, left: 80, right: 80 }}
-          colorScale={['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#FF6EC7']}
+          colorScale={['#4D96FF', '#1E56A0', '#4682B4', '#5DADE2', '#2874A6']}
           labels={({ datum }) => datum.x}
           labelComponent={
             <VictoryTooltip
@@ -75,41 +75,6 @@ const UserStatsGraphs = ({ balanceData = [] }) => {
             },
           }}
         />
-      </div>
-
-      <div className={styles.graphItem}>
-        <VictoryChart domainPadding={20}>
-          <VictoryAxis
-            style={{
-              axis: { stroke: '#ccc' },
-              tickLabels: { fill: '#ccc' },
-            }}
-          />
-          <VictoryAxis
-            dependentAxis
-            style={{
-              axis: { stroke: '#ccc' },
-              tickLabels: { fill: '#ccc', fontWeight: 'bold', fontSize: 14 },
-            }}
-          />
-          <VictoryBar
-            alignment="middle"
-            data={graph}
-            labelComponent={
-              <VictoryTooltip
-                flyoutStyle={{ fill: '#333', stroke: '#fff' }}
-                style={{ fill: '#fff', fontWeight: 'bold', fontSize: 14 }}
-              />
-            }
-            style={{
-              data: {
-                fill: '#4D96FF',
-                stroke: '#fff',
-                strokeWidth: 1,
-              },
-            }}
-          />
-        </VictoryChart>
       </div>
     </section>
   );

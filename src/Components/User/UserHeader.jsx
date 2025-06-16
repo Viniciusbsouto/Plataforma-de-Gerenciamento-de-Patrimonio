@@ -11,7 +11,7 @@ const UserHeader = () => {
     const { pathname } = location;
     switch (pathname) {
       case '/conta/postar':
-        setTitle('Adicione Patrimônio');
+        setTitle('Adicionar Posição');
         break;
       case '/conta/estatisticas':
         setTitle('Estatísticas');

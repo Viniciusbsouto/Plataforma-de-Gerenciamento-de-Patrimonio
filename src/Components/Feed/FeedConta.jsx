@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BALANCE_USER_GET, USER_GET } from '../../Api'; // Ajuste conforme o caminho
 import Head from '../Helper/Head';
-
+import FeedContaModal from './FeedContaModal';
+import styles from './FeedConta.module.css';
 const FeedConta = () => {
   const [total, setTotal] = useState(0);
   const [balances, setBalances] = useState([]);
@@ -57,41 +58,18 @@ const FeedConta = () => {
   if (error) return <div>Erro: {error}</div>;
 
   return (
-    <div>
+    <div className={styles.container}>
       <Head title="Minhas Posições" />
-      <h2>Saldo Total</h2>
-      <p>R$ {total.toFixed(2)}</p>
+      <h2 className={styles.title}>Saldo Total</h2>
+      <p className={styles.total}>R$ {total.toFixed(2)}</p>
 
-      <h3>Lançamentos</h3>
+      <h3 className={styles.subtitle}>Lançamentos</h3>
       {balances.length === 0 ? (
-        <p>Nenhum lançamento encontrado.</p>
+        <p className={styles.empty}>Nenhum lançamento encontrado.</p>
       ) : (
-        <ul>
+        <ul className={styles.list}>
           {balances.map((item) => (
-            <li
-              key={item.id}
-              style={{
-                border: '1px solid #ccc',
-                padding: '10px',
-                marginBottom: '10px',
-              }}
-            >
-              <p>
-                <strong>Descrição:</strong> {item.descricao}
-              </p>
-              <p>
-                <strong>Valor:</strong> R$ {parseFloat(item.valor).toFixed(2)}
-              </p>
-              <p>
-                <strong>Instituição:</strong> {item.instituicao}
-              </p>
-              <p>
-                <strong>Tipo:</strong> {item.tipo}
-              </p>
-              <p>
-                <strong>Data:</strong> {item.data_publicacao}
-              </p>
-            </li>
+            <FeedContaModal key={item.id} item={item} />
           ))}
         </ul>
       )}
