@@ -1,12 +1,37 @@
-# React + Vite
+# 💰 Finance Track
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Finance Track** é uma aplicação web para gerenciamento de patrimônio e controle financeiro pessoal.  
+Com ele, você consegue visualizar suas posições financeiras, e o seu saldo atualizado de forma prática e intuitiva.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades principais
+- Cadastro de posições
+- Visualização do saldo atual
+- Gráfico interativo com distribuição das posições por instituição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tecnologias utilizadas
+- [React] (frontend)
+- [Victory](gráficos)
+- [Styled Components](estilização)
+- [Axios](https://axios-http.com/) (requisições HTTP, se houver backend)
+- [WordPress REST API] (backend de dados)
 
-## Expanding the ESLint configuration
+---
+Deixarei algumas fotos abaixo do site funcionando.
+### Página Inicial
+![image](https://github.com/user-attachments/assets/044620f5-151d-4916-90ab-d5260a3a1c77)
+### Página para adicionar novas posições
+![image](https://github.com/user-attachments/assets/90e31d55-9eb7-44fa-a10e-0f5112b47962)
+### Página para visualizar suas posições
+![image](https://github.com/user-attachments/assets/f77b331e-ca27-4ed8-abfd-036ee3cdf8ee)
+### Página que disponibiliza um gráfico de suas posições atuais
+![image](https://github.com/user-attachments/assets/7835a563-5df4-4205-b560-e8f984b6857b)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Como rodar o projeto localmente
+
+Clone o repositório:
+
+git clone https://github.com/seu-usuario/seu-repo.git
+
+npm install
+
+npm run dev
