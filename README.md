@@ -30,7 +30,7 @@ Deixarei algumas fotos abaixo do site funcionando.
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone https://github.com/Viniciusbsouto/Plataforma-de-Gerenciamento-de-Patrimonio
 
 npm install
 
