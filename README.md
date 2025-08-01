@@ -25,12 +25,3 @@ Deixarei algumas fotos abaixo do site funcionando.
 ### Página que disponibiliza um gráfico de suas posições atuais
 ![image](https://github.com/user-attachments/assets/7835a563-5df4-4205-b560-e8f984b6857b)
 
-##  Como rodar o projeto localmente
-
-Clone o repositório:
-
-git clone https://github.com/Viniciusbsouto/Plataforma-de-Gerenciamento-de-Patrimonio
-
-npm install
-
-npm run dev
